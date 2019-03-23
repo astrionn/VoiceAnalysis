@@ -11,6 +11,9 @@ class TimeLabelDataSet:
     def __init__(self):
         self.dataSets = []
 
+    def __len__(self):
+    	return len(self.dataSets)
+
     def importFromFile(self,file):
         if os.path.exists(file):
             with open(file,'rb') as handle:
@@ -19,10 +22,10 @@ class TimeLabelDataSet:
     def saveToFile(self):
     	DEST_FOLDER_PATH = os.path.dirname(os.path.abspath(__file__)) +"\\"+str(datetime.date.today())
     	now = datetime.datetime.now()
-    	curtime = str(now.hour) +"-"+ str(now.minute)
+    	curtime = str(now.hour) + "-" + str(now.minute) + "-" + str(now.second)
     	if not os.path.isdir(DEST_FOLDER_PATH):
     		os.mkdir(DEST_FOLDER_PATH)
-    	with open(DEST_FOLDER_PATH + "\\"+ curtime ,"wb") as handle:
+    	with open(DEST_FOLDER_PATH + "\\"+ curtime + ".tlds" ,"wb") as handle:
                  pickle.dump(self.dataSets, handle)
 
     def addTimeLabelData(self, *args):

@@ -8,13 +8,6 @@ class TimeLabelData:
         self.labels = []
         self.pauses = []
 
-    def printList(self,list_):
-        print("#"*64)
-        print(inspect.stack()[1].function)
-        print("#"*64)
-        for _ in list_:
-            print(str(_))
-        print("#"*64)
 
     def addLabelPair(self,start,stop):
         self.labels.append((float(start),float(stop)))
@@ -23,7 +16,7 @@ class TimeLabelData:
         return self.labels
 
     def printData(self):
-        self.printList(self.labels)
+        printList(self.labels)
 
     def getLength(self):
         if not self.labels: return 0
@@ -63,7 +56,7 @@ class TimeLabelData:
         if not self.labels : return 0
         self.pauses = [0]*len(self.labels)
         for i in range(len(self.labels)):
-            if not i == 0 :
+            if not i :
                 self.pauses[i] = (self.labels[i-1][1] , self.labels[i][0])
             else:
                 self.pauses[0] = (0,self.labels[0][0])
@@ -76,12 +69,10 @@ class TimeLabelData:
     #plotted ??
     
 
-    
-
 def printList(list_):
         print("#"*64)
         print(inspect.stack()[1].function)
         print("#"*64)
         for _ in list_:
-            print(str(_))
+            print(str(_),'\n')
         print("#"*64)
