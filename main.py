@@ -94,8 +94,9 @@ def main():
 	for stat in stats:
 		print(stat.median())
 		print(stat.mean())
+		stat.plot()
 		pass
-	if input() == 0: sys.exit()
+	#if input() == 0: sys.exit()
 	
 #/lööp
 

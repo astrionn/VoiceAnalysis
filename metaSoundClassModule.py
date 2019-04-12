@@ -1,4 +1,6 @@
 import numpy as np
+import matplotlib.pyplot as pp
+from TimeLabelDataModule import printList
 
 class SoundStatistic:
 	"""docstring for metaSound"""
@@ -17,4 +19,17 @@ class SoundStatistic:
 
 	def mean(self):
 		return self.pauses.mean()
+
+	def plot(self, what=0):
+		if what == 0:
+			ar = self.pauses
+			pp.plot(ar)
+		else:
+			ar = self.data
+			for dp in ar:
+				pp.plot(ar)
+		printList(ar)
+		
+		pp.show()
+		
 	
