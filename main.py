@@ -92,8 +92,8 @@ def main():
 	#if input() == 0: sys.exit()
 	stats = TLDSToStatistics()
 	for stat in stats:
-		print(stat.median())
-		print(stat.mean())
+		print(f'median {stat.median()}')
+		print(f'mean {stat.mean()}')
 		stat.plot()
 		pass
 	#if input() == 0: sys.exit()

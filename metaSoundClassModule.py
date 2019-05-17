@@ -1,4 +1,5 @@
 import numpy as np
+from math import log
 import matplotlib.pyplot as pp
 from TimeLabelDataModule import printList
 
@@ -23,13 +24,28 @@ class SoundStatistic:
 	def plot(self, what=0):
 		if what == 0:
 			ar = self.pauses
-			pp.plot(ar)
+			printList(ar)
+
+			pp.plot('x','y1',ar)
+			pp.axhline(y=self.mean(), color='r', linestyle='-')
+			pp.axhline(y=self.median(), color='b', linestyle='-')
+			pp.xlabel('Zeit')
+			pp.ylabel('Pausenlänge')
+			pp.legend()
+			pp.show()
+
 		else:
 			ar = self.data
+			printList(ar)
+
 			for dp in ar:
-				pp.plot(ar)
-		printList(ar)
+				pp.plot(*zip(*[(elem1, elem2) for elem1, elem2 in dp]))
+			
+			pp.xlabel('zeit')
+			pp.ylabel('dunno')
+			pp.legend()
+			pp.show()
+				
 		
-		pp.show()
 		
 	
