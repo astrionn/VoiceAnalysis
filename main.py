@@ -82,7 +82,7 @@ def TLDSToStatistics():
 #/IO
 
 #lööp
-def main():
+if __name__ == '__main__':
 	"""sends every sample trough sound filters via audacity API and extracts time label data """
 	
 	
@@ -100,7 +100,7 @@ def main():
 	
 #/lööp
 
-main()
+
 print("done")
 
 
